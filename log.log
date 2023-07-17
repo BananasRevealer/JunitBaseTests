@@ -1,0 +1,18 @@
+2023-07-16 21:28:37 INFO     WebDriverThreadLocalContainer:155 - No webdriver is bound to current thread: 1 - let's create a new webdriver
+2023-07-16 21:28:37 INFO     FileHelper:56 - Creating folder: C:\ITxa\JavaProjects\POM\build\downloads\1689532117894_16000_1
+2023-07-16 21:28:38 INFO     WebDriverManager:1292 - Reading https://chromedriver.storage.googleapis.com/ to seek chromedriver
+2023-07-16 21:28:39 INFO     Downloader:127 - Downloading https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_win32.zip
+2023-07-16 21:28:39 INFO     Downloader:188 - Extracting driver from compressed file chromedriver_win32.zip
+2023-07-16 21:28:39 INFO     WebDriverManager:1021 - Exporting webdriver.chrome.driver as C:\Users\Sunny Pluck\.cache\selenium\chromedriver\win32\114.0.5735.90\chromedriver.exe
+2023-07-16 21:29:32 INFO     WebDriverThreadLocalContainer:155 - No webdriver is bound to current thread: 1 - let's create a new webdriver
+2023-07-16 21:29:32 INFO     FileHelper:56 - Creating folder: C:\ITxa\JavaProjects\POM\build\downloads\1689532172881_5668_1
+2023-07-16 21:29:33 INFO     WebDriverManager:1021 - Exporting webdriver.chrome.driver as C:\Users\Sunny Pluck\.cache\selenium\chromedriver\win32\114.0.5735.90\chromedriver.exe
+2023-07-16 21:35:31 INFO     WebDriverThreadLocalContainer:155 - No webdriver is bound to current thread: 1 - let's create a new webdriver
+2023-07-16 21:35:31 INFO     FileHelper:56 - Creating folder: C:\ITxa\JavaProjects\POM\build\downloads\1689532531073_13540_1
+2023-07-16 21:35:32 INFO     WebDriverManager:1021 - Exporting webdriver.chrome.driver as C:\Users\Sunny Pluck\.cache\selenium\chromedriver\win32\114.0.5735.90\chromedriver.exe
+2023-07-16 22:08:06 INFO     WebDriverThreadLocalContainer:155 - No webdriver is bound to current thread: 1 - let's create a new webdriver
+2023-07-16 22:08:45 INFO     WebDriverThreadLocalContainer:155 - No webdriver is bound to current thread: 1 - let's create a new webdriver
+2023-07-16 22:09:07 INFO     WebDriverThreadLocalContainer:155 - No webdriver is bound to current thread: 1 - let's create a new webdriver
+2023-07-16 22:09:17 INFO     WebDriverThreadLocalContainer:155 - No webdriver is bound to current thread: 1 - let's create a new webdriver
+2023-07-16 22:13:04 INFO     WebDriverThreadLocalContainer:155 - No webdriver is bound to current thread: 1 - let's create a new webdriver
+2023-07-16 22:13:08 INFO     WebDriverThreadLocalContainer:155 - No webdriver is bound to current thread: 1 - let's create a new webdriver
