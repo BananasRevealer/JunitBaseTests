@@ -1,68 +1,37 @@
 import PageObjects.LoginPage;
+import TestUtils.TestSetup;
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import io.qameta.allure.selenide.LogType;
-import org.awaitility.Awaitility;
-import org.awaitility.core.ConditionFactory;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.logging.LoggingPreferences;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import io.qameta.allure.Allure;
 
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.concurrent.TimeUnit;
-import java.util.function.Supplier;
-import java.util.logging.Level;
+import java.util.stream.Stream;
 
+import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.$x;
 
-public class LoginTest {
-
-    private final Supplier<ConditionFactory> Waiter = () -> Awaitility.given()
-            .ignoreExceptions()
-            .pollInterval(3, TimeUnit.SECONDS)
-            .await()
-            .dontCatchUncaughtExceptions()
-            .atMost(10, TimeUnit.SECONDS);
-
-//    private boolean waitLogs(String expectedMessage) {
-//        WebDriver driver = WebDriverRunner.getWebDriver();
-//        AtomicBoolean isLogContains = new AtomicBoolean(false);
-//
-//        Waiter.get().until(() -> {
-//            LogEntries logEntries = driver.manage().logs();
-//        });
-//
-//    }
-
-    @BeforeAll
-    public static void driverSetup() {
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        ChromeOptions options = new ChromeOptions();
-        LoggingPreferences loggingPreferences = new LoggingPreferences();
-
-        loggingPreferences.enable(String.valueOf(LogType.BROWSER), Level.ALL);
-        loggingPreferences.enable(String.valueOf(LogType.PERFORMANCE), Level.ALL);
-
-        capabilities.setCapability("goog:loggingPrefs",loggingPreferences);
-        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-
-        Configuration.browserCapabilities = capabilities;
-        Configuration.timeout = 10000;
-        Configuration.pageLoadTimeout = 10000;
-
-
+public class LoginTest extends TestSetup {
+    private static Stream<Arguments> users () {
+        return Stream.of(
+                Arguments.of("89253164020","Testpass!@Testp@ss1"),
+                Arguments.of("+79253164020","Testpass!@Testp@ss2"),
+                Arguments.of("79653408374","Testpass!@Testp@ss3"),
+                Arguments.of("89112151010","Testpass!@Testp@ss4")
+        );
     }
 
-
-    @Test
-    public void userLoginTest () {
-        Selenide.open("http://dzen.ru");
-        LoginPage loginPage = new LoginPage();
-        loginPage.login("user", "password");
-        $x("//h6[contains(text(),Dashboard]..").shouldBe(Condition.visible);
-        $x("//img[@alt = 'profile picture']..").shouldBe(Condition.visible, Condition.enabled);
+    @ParameterizedTest
+    @MethodSource("users")
+    void userLoginTest (String user, String password) {
+        Allure.step("", () -> {
+            Selenide.open(baseUrl);
+            LoginPage loginPage = new LoginPage();
+            loginPage.login(user, password);
+            $x("//h6[contains(text(),Dashboard]/..").shouldBe(Condition.visible);
+            $x("//img[@alt = 'profile picture']/..").shouldBe(Condition.visible, Condition.enabled);
+        });
     }
 }
